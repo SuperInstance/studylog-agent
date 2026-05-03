@@ -104,3 +104,13 @@ studylog-agent/
 ## License
 
 MIT
+
+## Fleet Context
+
+This agent is part of the **Cocapn Fleet** — a system of domain-specific PLATO agents that track, learn, and persist knowledge across sessions. Each agent writes to its own PLATO room, creating a distributed knowledge graph that grows over time.
+
+## Links
+
+- Live site: https://studylog.ai
+- Fleet: https://cocapn.com
+- PLATO: https://github.com/SuperInstance/plato
