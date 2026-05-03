@@ -114,3 +114,8 @@ This agent is part of the **Cocapn Fleet** — a system of domain-specific PLATO
 - Live site: https://studylog.ai
 - Fleet: https://cocapn.com
 - PLATO: https://github.com/SuperInstance/plato
+
+## Related
+
+- [studylog.ai](https://studylog.ai) — Live site
+- [studylog-ai-pages](https://github.com/SuperInstance/studylog-ai-pages) — GitHub Pages source
