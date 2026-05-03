@@ -1,0 +1,81 @@
+Metadata-Version: 2.4
+Name: studylog-agent
+Version: 0.1.0
+Summary: PLATO Study Partner Agent — tracks learning progression as tiles
+Author-email: SuperInstance <cocapn@proton.me>
+License: MIT
+Keywords: plato,learning,agent,study,education
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21; extra == "dev"
+Requires-Dist: httpx; extra == "dev"
+
+# studylog-agent
+
+**PLATO Study Partner Agent** — tracks student and researcher learning progression as tiles in PLATO.
+
+Every lesson is logged as a tile. Later agents can "don the shell" and continue from prior sessions. Self-improving curriculum via agent learning from past sessions.
+
+## Features
+
+- **Session Logging**: Record study topics, concepts, questions, and understanding level
+- **Shell Resume**: Don the shell to continue from where you left off
+- **Concept Mastery Tracking**: Track which concepts have been covered and how many times
+- **Study Suggestions**: Get AI-suggested next topics based on your history
+- **History & Stats**: View past sessions and mastery statistics
+
+## Installation
+
+```bash
+pip install studylog-agent
+```
+
+## Usage
+
+```bash
+# Interactive study session
+studylog
+
+# Resume last session (don the shell)
+studylog --resume
+
+# Show study history
+studylog --history
+
+# Suggest next lesson
+studylog --suggest
+
+# Show concept mastery stats
+studylog --stats
+```
+
+## PLATO Integration
+
+studylog-agent communicates with the PLATO tile server at `http://localhost:8847`. Each study session is submitted as a tile to the `studylog-ai` room. Tiles store:
+
+- **domain**: `studylog-ai`
+- **question**: Topic being studied
+- **answer**: Structured data with concepts, questions, understanding level, notes, next steps, and resources
+
+## Architecture
+
+```
+studylog_agent/
+├── __init__.py    # Core StudyLogAgent class
+├── cli.py         # CLI entry point
+├── pyproject.toml
+└── README.md
+```
+
+## License
+
+MIT

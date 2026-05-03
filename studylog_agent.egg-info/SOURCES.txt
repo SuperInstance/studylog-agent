@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+studylog_agent/__init__.py
+studylog_agent/cli.py
+studylog_agent.egg-info/PKG-INFO
+studylog_agent.egg-info/SOURCES.txt
+studylog_agent.egg-info/dependency_links.txt
+studylog_agent.egg-info/entry_points.txt
+studylog_agent.egg-info/requires.txt
+studylog_agent.egg-info/top_level.txt
+tests/test_studylog_agent.py
