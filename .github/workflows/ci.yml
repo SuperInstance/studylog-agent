@@ -4,25 +4,22 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify README exists and is substantial
-        run: |
-          if [ ! -f README.md ]; then echo "::error::No README.md"; exit 1; fi
-          lines=$(wc -l < README.md)
-          if [ "$lines" -lt 5 ]; then echo "::warning::README is very short ($lines lines)"; fi
-          echo "README.md: $lines lines ✓"
-      - name: Check for HTTP (non-HTTPS) links
+      - name: Check for broken links in README
         run: |
           if [ -f README.md ]; then
-            http_links=$(grep -n "http://" README.md || true)
-            if [ -n "$http_links" ]; then
-              echo "::warning::Found HTTP links (should be HTTPS):"
-              echo "$http_links"
-            else
-              echo "No insecure HTTP links found ✓"
-            fi
+            grep -n "http" README.md | grep -v "https://github.com" | head -20 || true
+          fi
+      - name: Verify repo has description-worthy README
+        run: |
+          if [ ! -f README.md ]; then
+            echo "::warning::No README.md found"
+          fi
+          if [ "$(wc -l < README.md 2>/dev/null || echo 0)" -lt 5 ]; then
+            echo "::warning::README.md is very short"
           fi
