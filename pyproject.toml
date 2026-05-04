@@ -1,1 +1,29 @@
-dependencies = ["domain-agent-base @ git+https://github.com/SuperInstance/domain-agent-base.git"]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "studylog-agent"
+version = "0.2.0"
+description = "PLATO Study Partner Agent for studylog.ai"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+
+dependencies = [
+    "fleet-agent>=0.2.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4.0", "ruff>=0.1.0"]
+
+[project.scripts]
+studylog = "studylog_agent:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["studylog_agent"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
